@@ -1,0 +1,98 @@
+@import "~tailwindcss/base";
+@import "~tailwindcss/components";
+@import "~tailwindcss/utilities";
+
+
+
+// EcoWorks
+
+.ecospaces-img {
+    height: 70vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    transform: scale(0.78, 0.78);
+}
+
+.img-1 {
+    background-image: url("../public/DayPass.jpg");
+
+}
+
+.img-2 {
+    background-image: url("../public/Dedicated Desks.JPG");
+}
+
+.img-3 {
+    background-image: url("../public/Private Cabins.jpg");
+}
+
+.img-4 {
+    background-image: url("../public/CustomCabin.jpg");
+}
+
+.img-5 {
+    background-image: url("../public/hot_desks.jpg");
+}
+
+
+// Text Highlight
+
+
+:root {
+    --bg-color-hsl: 59, 3%, 94%;
+    --bg-color: hsl(var(--bg-color-hsl));
+    --bg-color-translucent: hsla(var(--bg-color-hsl), 0.95);
+    --bg-color-highlight: #8acf7e;
+    --color-text: white;
+    --color-text-highlight: black;
+    --page-width: 80ch;
+    --paragraph-font-size: min(max(1.2rem, 4vw), 1.4rem);
+    --header-font-size: min(max(2rem, 8vw), 4rem);
+    --space: 2rem;
+    --padding: 8vmin;
+    --duration: 1.8s;
+    --ease: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+
+
+.text-highlight {
+    all: unset;
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    transition: color calc(var(--duration) / 4) var(--ease),
+        background-color calc(var(--duration) / 4) var(--ease),
+        background-size var(--duration) var(--ease);
+
+    &.active {
+        color: var(--color-text-highlight);
+        background-size: 100% 100%;
+    }
+
+    & {
+        background-image: linear-gradient(var(--bg-color-highlight),
+                var(--bg-color-highlight));
+    }
+
+
+    &::before,
+    &::after {
+        position: absolute;
+        clip-path: inset(100%);
+        clip: rect(1px, 1px, 1px, 1px);
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        white-space: nowrap;
+        user-select: none;
+    }
+
+    &::before {
+        content: " [highlight start] ";
+    }
+
+    &::after {
+        content: " [highlight end] ";
+    }
+}
